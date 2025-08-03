@@ -1,0 +1,17 @@
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "NextCoder",
+                "type": "shell",
+                "command": "bash -c '/Users/brw487/world/deploy.sh server precision'", // Replace with your actual script or command
+                "runOptions": {
+                    "runOn": "folderOpen"
+                },
+                "presentation": {
+                    "reveal": "silent",
+                    "panel": "new"
+                }
+            }
+        ]
+    }

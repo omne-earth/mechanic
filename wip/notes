@@ -1,0 +1,4 @@
+bash models/get.sh "microsoft/NextCoder-7B"
+bash models/get.sh "mistralai/Codestral-22B-v0.1"
+bash models/get.sh "mistralai/Mamba-Codestral-7B-v0.1"
+bash models/get.sh "bigcode/starcoder2-15b"

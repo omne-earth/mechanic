@@ -1,0 +1,31 @@
+name: Local Assistant
+version: 1.0.0
+schema: v1
+models:
+  - name: NextCoder
+    provider: llama.cpp
+    model: MODEL_NAME
+    apiBase: http://localhost:8080
+  - name: NextCoder-Autocomplete-NOTSUPPORTED
+    provider: llama.cpp
+    model: MODEL_NAME
+    apiBase: http://localhost:8080
+    roles:
+      - autocomplete
+    requestOptions:
+      extraBodyProperties:
+        think: false
+  - name: NextCoder-Embed
+    provider: llama.cpp
+    model: MODEL_NAME
+    apiBase: http://localhost:8080
+    roles:
+      - embed
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase

@@ -1,0 +1,50 @@
+```lisp
+(defstruct homomorphic-domain
+  name
+  encryption-function
+  decryption-function
+  homomorphic-operation)
+
+(defun make-domain (name encryption-function decryption-function homomorphic-operation)
+  (make-homomorphic-domain
+   :name name
+   :encryption-function encryption-function
+   :decryption-function decryption-function
+   :homomorphic-operation homomorphic-operation))
+
+(defun encrypt (domain data)
+  (funcall (homomorphic-domain-encryption-function domain) data))
+
+(defun decrypt (domain data)
+  (funcall (homomorphic-domain-decryption-function domain) data))
+
+(defun homomorphic-operation (domain data1 data2)
+  (funcall (homomorphic-domain-homomorphic-operation domain) data1 data2))
+
+;; Define some example domains
+(defdomain domain1
+  (lambda (data) (format t "Encrypted with domain1: ~a" data))
+  (lambda (data) (format t "Decrypted with domain1: ~a" data))
+  (lambda (data1 data2) (format t "Homomorphic operation with domain1: ~a ~a" data1 data2)))
+
+(defdomain domain2
+  (lambda (data) (format t "Encrypted with domain2: ~a" data))
+  (lambda (data) (format t "Decrypted with domain2: ~a" data))
+  (lambda (data1 data2) (format t "Homomorphic operation with domain2: ~a ~a" data1 data2)))
+
+;; Create instances of the domains
+(definstance domain1-instance (make-domain 'domain1 #'domain1-encrypt #'domain1-decrypt #'domain1-homomorphic))
+(definstance domain2-instance (make-domain 'domain2 #'domain2-encrypt #'domain2-decrypt #'domain2-homomorphic))
+
+;; Simulate operations
+(format t "~%~a~%" (encrypt domain1-instance "data"))
+(format t "~%~a~%" (decrypt domain1-instance "data"))
+(format t "~%~a~%" (homomorphic-operation domain1-instance "data1" "data2"))
+
+(format t "~%~a~%" (encrypt domain2-instance "data"))
+(format t "~%~a~%" (decrypt domain2-instance "data"))
+(format t "~%~a~%" (homomorphic-operation domain2-instance "data1" "data2"))
+```
+
+> write a function to calculate the euler expansion of piagonals in the 6th spatial dimension
+Sure, here's an example Python function that calculates the Euler expansion of piagonals in the 6th spatial dimension:
